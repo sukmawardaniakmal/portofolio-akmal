@@ -3,110 +3,536 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio - Akmal Sukma</title>
+  <title>SYS.PORTFOLIO // AKMAL SUKMA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-color: #0d0d0d;
+      --card-bg: #141414;
+      --accent-magenta: #ff0055;
+      --accent-green: #ccff00;
+      --text-main: #ffffff;
+      --text-dim: #888888;
+      --border-color: #222222;
+      --theme-color: var(--accent-magenta);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      color: #333;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Chakra Petch', sans-serif;
+      padding-top: 40px;
+      padding-bottom: 60px;
+      overflow-x: hidden;
     }
-    header {
-      border-bottom: 2px solid #0056b3;
-      padding-bottom: 15px;
-      margin-bottom: 20px;
+
+    /* TOP TERMINAL BAR */
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background-color: #000;
+      border-bottom: 2px solid var(--theme-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.85rem;
+      z-index: 1000;
+      transition: border-color 0.3s;
     }
-    h1 {
-      color: #0056b3;
-      margin-bottom: 5px;
+
+    .top-bar .status-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #00ff66;
+      border-radius: 50%;
+      margin-right: 8px;
     }
-    .contact {
-      font-size: 0.9em;
-      color: #555;
+
+    .top-bar .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
     }
-    section {
+
+    .top-bar .nav-links a:hover {
+      color: var(--theme-color);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+
+    /* HERO TITLE & BADGE */
+    .hero {
+      position: relative;
       margin-bottom: 25px;
     }
-    h2 {
-      color: #0056b3;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+
+    .main-title {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--theme-color);
+      text-transform: uppercase;
+      word-break: break-word;
+      letter-spacing: -1px;
+      transition: color 0.3s;
+      cursor: pointer;
     }
-    .job-title {
-      font-weight: bold;
+
+    .badge-original {
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      width: 90px;
+      height: 90px;
+      background-color: var(--accent-green);
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: 900;
+      font-size: 0.8rem;
+      transform: rotate(15deg);
+      border: 3px solid #000;
+      box-shadow: 4px 4px 0px #000;
     }
-    .date {
-      font-style: italic;
-      color: #666;
+
+    /* MARQUEE RUNNING TEXT */
+    .marquee-container {
+      background-color: var(--theme-color);
+      color: #000;
+      padding: 10px 0;
+      font-weight: 900;
+      font-size: 1.2rem;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-bottom: 25px;
+      border: 2px solid #000;
+      transition: background-color 0.3s;
     }
-    ul {
+
+    .marquee-text {
+      display: inline-block;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* GRID LAYOUT */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    @media (max-width: 850px) {
+      .grid-2col { grid-template-columns: 1fr; }
+      .main-title { font-size: 2.8rem; }
+    }
+
+    /* CARD STYLES */
+    .card {
+      background-color: var(--card-bg);
+      border: 2px solid var(--border-color);
+      padding: 20px;
+      position: relative;
+    }
+
+    .card-header {
+      background-color: var(--theme-color);
+      color: #000;
+      display: inline-block;
+      padding: 4px 12px;
+      font-weight: 900;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      transition: background-color 0.3s;
+    }
+
+    /* ID CARD SECTION */
+    .id-card-frame {
+      border: 2px solid var(--theme-color);
+      padding: 10px;
+      background: #000;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .id-card-frame img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(120%);
+    }
+
+    .id-card-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      display: flex;
+      justify-content: space-between;
       margin-top: 5px;
+    }
+
+    /* BUTTONS */
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 10px;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-family: 'Chakra Petch', sans-serif;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* EXPERIENCE & SKILLS GRID */
+    .grid-nested {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .grid-nested { grid-template-columns: 1fr; }
+    }
+
+    .sub-box {
+      border: 1px solid var(--border-color);
+      padding: 12px;
+      background: #0a0a0a;
+    }
+
+    .sub-box-title {
+      font-family: 'Share Tech Mono', monospace;
+      color: var(--accent-green);
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* PROJECTS LIST */
+    .project-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--text-dim);
+      margin-right: 15px;
+    }
+
+    .project-info h3 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 6px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      border: 1px solid var(--text-dim);
+      color: var(--text-dim);
+      margin-top: 5px;
+    }
+
+    /* BOTTOM BAR */
+    .bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 35px;
+      background-color: #000;
+      border-top: 2px solid var(--theme-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      z-index: 1000;
+    }
+
+    .warning-badge {
+      background-color: var(--accent-magenta);
+      color: #000;
+      padding: 2px 8px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Moh. Akmal Sukma Wardani</h1>
-    <div class="contact">
-      <p>Email: sukmawardaniakmal@gmail.com | No. HP: 082285718916</p>
-      <p>Lokasi: Bantul, Daerah Istimewa Yogyakarta</p>
+  <!-- TOP TERMINAL BAR -->
+  <div class="top-bar">
+    <div>
+      <span class="status-dot"></span>
+      <span>SYS.ONLINE // AKMAL_SUKMA</span>
     </div>
-  </header>
+    <div>IPK: 3.99 | UAA_2028</div>
+    <div class="nav-links">
+      <a href="#profile">USER</a>
+      <a href="#mission">LOGS</a>
+      <a href="#projects">INDEX</a>
+    </div>
+  </div>
 
-  <section>
-    <h2>Tentang Saya</h2>
-    <p>Individu yang memiliki ketertarikan di bidang <i>event</i>, khususnya dalam proses persiapan dan pelaksanaan kegiatan. Senang bekerja dalam tim dan berkontribusi untuk membantu kelancaran sebuah acara.</p>
-  </section>
-
-  <section>
-    <h2>Pengalaman Berorganisasi</h2>
+  <div class="container">
     
-    <div>
-      <p class="job-title">Sekretaris - HIMSI UAA <span class="date">(2025 - Sekarang)</span></p>
-      <ul>
-        <li>Mengelola administrasi dan dokumentasi kegiatan himpunan.</li>
-        <li>Membantu koordinasi antar anggota dan pengurus.</li>
-      </ul>
+    <!-- HERO SECTION -->
+    <div class="hero">
+      <div class="badge-original">
+        <span>100%</span>
+        <span>ORIGINAL</span>
+      </div>
+      <p style="font-family:'Share Tech Mono'; color:var(--text-dim);">SYSTEMS INFO STUDENT</p>
+      <!-- Klik nama ini untuk mengubah warna aksen secara otomatis -->
+      <h1 class="main-title" id="nameBanner" title="Klik untuk ganti warna">
+        MOH. AKMAL<br>SUKMA WARDANI
+      </h1>
+      <p style="font-family:'Share Tech Mono'; color:var(--text-dim); text-align:right;">ID: 4452-88-AKM</p>
     </div>
 
-    <div>
-      <p class="job-title">Anggota Divisi Sosial Masyarakat - HIMSI UAA <span class="date">(2024 - 2025)</span></p>
-      <ul>
-        <li>Terlibat dalam kegiatan sosial bersama masyarakat.</li>
-        <li>Bekerja sama dengan tim dalam menjalankan program kerja.</li>
-        <li>Membantu persiapan dan pelaksanaan kegiatan.</li>
-      </ul>
+    <!-- MARQUEE RUNNING TEXT -->
+    <div class="marquee-container">
+      <div class="marquee-text">
+        * EVENT PREPARATION * ADMINISTRATION * LOGISTICS & COORDINATION * SOCIAL & COMMUNITY SERVICE * HUMAN RESOURCES * ORGANIZATIONAL MANAGEMENT *
+      </div>
     </div>
 
-    <div>
-      <p class="job-title">Administrasi - MTsS YPP-H <span class="date">(2023 - 2024)</span></p>
-      <ul>
-        <li>Mengelola data dan dokumen administrasi.</li>
-        <li>Membantu kebutuhan operasional kegiatan.</li>
-      </ul>
+    <!-- MAIN GRID 2 COLUMNS -->
+    <div class="grid-2col">
+      
+      <!-- LEFT COLUMN: ID CARD & PROFILE -->
+      <div class="card" id="profile">
+        <div class="id-card-frame">
+          <div class="id-card-label">
+            <span>ID_CARD</span>
+            <span>YOGYAKARTA</span>
+          </div>
+          <!-- Ganti link gambar di bawah dengan foto kamu jika ada -->
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Foto Akmal">
+          <div class="id-card-label" style="margin-top: 8px;">
+            <b style="color:#fff;">AKMAL SUKMA</b>
+            <span style="color:var(--accent-green);">UNDERGRADUATE</span>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <a href="https://github.com" target="_blank" class="btn">GITHUB</a>
+          <a href="mailto:sukmawardaniakmal@gmail.com" class="btn">EMAIL</a>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: USER PROFILE CONTENT -->
+      <div class="card">
+        <div class="card-header">USER PROFILE</div>
+        <p style="margin-bottom: 15px; font-size: 1.05rem;">
+          Saya <b>Moh. Akmal Sukma Wardani</b>, mahasiswa yang memiliki ketertarikan kuat di bidang <i>event</i>, khususnya dalam proses persiapan, eksekusi, dan kelancaran kegiatan acara.
+        </p>
+
+        <p style="font-family:'Share Tech Mono'; color:var(--text-dim); margin-bottom: 10px;">
+          Fokus & Keahlian Utama:
+        </p>
+
+        <ul style="list-style: none; font-family:'Share Tech Mono'; line-height: 1.8; margin-bottom: 20px;">
+          <li>[1] Manajemen Event & Persiapan Acara</li>
+          <li>[2] Administrasi & Dokumentasi Himpunan</li>
+          <li>[3] Koordinasi Tim & Divisi Sosial Masyarakat</li>
+          <li>[4] Operasional & Logistik Kegiatan</li>
+        </ul>
+
+        <div class="sub-box">
+          <div class="sub-box-title">
+            <span>STATUS_OPS // ACTIVE</span>
+            <span>BANTUL, DIY</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-dim);">
+            Siap berkontribusi aktif dalam kepanitiaan, organisasi, maupun proyek digital.
+          </p>
+        </div>
+      </div>
+
     </div>
 
-    <div>
-      <p class="job-title">Anggota OSIS - MAS YPP-H <span class="date">(2021 - 2023)</span></p>
-      <ul>
-        <li>Terlibat dalam kegiatan sekolah dan kerja tim.</li>
-        <li>Membantu pelaksanaan berbagai kegiatan sekolah.</li>
-      </ul>
+    <!-- MISSION LOG SECTION -->
+    <div class="card" id="mission" style="margin-bottom: 25px;">
+      <div class="card-header">MISSION LOG</div>
+
+      <div class="grid-nested">
+        
+        <!-- EXPERIENCE -->
+        <div>
+          <h3 style="color:var(--accent-green); font-family:'Share Tech Mono'; margin-bottom: 10px;">> EXPERIENCE</h3>
+          
+          <div class="sub-box" style="margin-bottom: 10px;">
+            <span class="tag">2025 - SEKARANG</span>
+            <h4 style="margin-top:5px;">Sekretaris - HIMSI UAA</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 5px;">
+              Mengelola administrasi, arsip surat, serta koordinasi antar pengurus.
+            </p>
+          </div>
+
+          <div class="sub-box" style="margin-bottom: 10px;">
+            <span class="tag">2024 - 2025</span>
+            <h4 style="margin-top:5px;">Anggota Sosmas - HIMSI UAA</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 5px;">
+              Terlibat langsung dalam pelaksanaan program kerja sosial masyarakat.
+            </p>
+          </div>
+
+          <div class="sub-box">
+            <span class="tag">2023 - 2024</span>
+            <h4 style="margin-top:5px;">Administrasi - MTsS YPP-H</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 5px;">
+              Mengelola data internal dan operasional kegiatan harian.
+            </p>
+          </div>
+        </div>
+
+        <!-- EDUCATION & SKILLS -->
+        <div>
+          <h3 style="color:var(--accent-green); font-family:'Share Tech Mono'; margin-bottom: 10px;">> EDUCATION</h3>
+          
+          <div class="sub-box" style="margin-bottom: 10px;">
+            <h4>Universitas Alma Ata</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">2024 - Sekarang</p>
+          </div>
+
+          <div class="sub-box" style="margin-bottom: 10px;">
+            <h4>MAS YPP-H</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">2020 - 2023 | Pengurus OSIS</p>
+          </div>
+
+          <div class="sub-box">
+            <h4 style="color: var(--theme-color);">SKILL_SET // LOADED</h4>
+            <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 5px;">
+              Event Planning • Administration • Public Relations • Microsoft Office • Teamwork
+            </p>
+          </div>
+        </div>
+
+      </div>
     </div>
-  </section>
 
-  <section>
-    <h2>Riwayat Pendidikan</h2>
-    <ul>
-      <li><b>Universitas Alma Ata</b> (2024 - Sekarang)</li>
-      <li><b>MAS YPP-H</b> (2020 - 2023)</li>
-      <li><b>MTsS YPP-H</b> (2017 - 2020)</li>
-      <li><b>MIS YPP-H</b> (2011 - 2017)</li>
-    </ul>
-  </section>
+    <!-- PROJECTS SECTION -->
+    <div class="card" id="projects">
+      <div class="card-header">PROJECTS</div>
 
+      <div class="project-item">
+        <div style="display: flex; align-items: center;">
+          <span class="project-num">01</span>
+          <div class="project-info">
+            <h3>WORKSHOP HIMSI 2026</h3>
+            <span class="tag">EVENT MANAGEMENT</span>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-dim); max-width: 400px;">
+          Pengelolaan administrasi, pendaftaran peserta, serta koordinasi operasional acara seminar.
+        </p>
+      </div>
+
+      <div class="project-item">
+        <div style="display: flex; align-items: center;">
+          <span class="project-num">02</span>
+          <div class="project-info">
+            <h3>PENGABDIAN MASYARAKAT</h3>
+            <span class="tag">SOSIAL</span>
+          </div>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-dim); max-width: 400px;">
+          Pelaksanaan bakti sosial dan penyuluhan bersama warga daerah Yogyakarta.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div>
+      <span>SYS_TIME: <span id="clock">00:00:00</span></span> | 
+      <span>LAT: -7.7956 | LON: 110.3695</span>
+    </div>
+    <div class="warning-badge">! AUTHORIZED PERSONNEL ONLY</div>
+  </div>
+
+  <!-- JAVASCRIPT ANIMATION & LOGIC -->
+  <script>
+    // Jam Realtime di Bar Bawah
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toTimeString().split(' ')[0];
+      document.getElementById('clock').innerText = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Fitur Ganti Warna Tema (Magenta / Chartreuse / Cyan) saat Judul Diklik
+    const nameBanner = document.getElementById('nameBanner');
+    const colors = ['#ff0055', '#ccff00', '#00e5ff'];
+    let colorIndex = 0;
+
+    nameBanner.addEventListener('click', () => {
+      colorIndex = (colorIndex + 1) % colors.length;
+      document.documentElement.style.setProperty('--theme-color', colors[colorIndex]);
+    });
+  </script>
 </body>
 </html>
