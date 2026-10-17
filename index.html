@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -31,273 +31,254 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 20px;
+            padding: 30px 15px;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 750px;
             margin: 0 auto;
-            padding: 20px 0;
         }
 
-        /* Header / Hero Section */
+        /* Header */
         header {
-            text-align: center;
-            padding: 40px 0 20px;
+            padding-bottom: 25px;
             border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
         }
 
         header h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--text-primary);
         }
 
         header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 16px;
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 15px;
         }
 
-        .social-links {
+        .social-icons {
             display: flex;
-            justify-content: center;
             gap: 12px;
-            margin-top: 15px;
             flex-wrap: wrap;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s ease;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-hover);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background-color: #388bfd;
-        }
-
-        .btn-outline {
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
-            background-color: var(--card-bg);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
-        .btn-outline:hover {
+        .btn-link:hover {
             border-color: var(--text-secondary);
+            background-color: #21262d;
         }
 
         /* Sections */
         section {
-            padding: 30px 0;
-            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 35px;
         }
 
-        section h2 {
-            font-size: 1.4rem;
+        h2 {
+            font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--accent-color);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .about-text {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* Tech Badges */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .badge {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
+            margin-bottom: 15px;
             color: var(--text-primary);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
         }
 
-        /* Projects Grid */
-        .project-card {
+        p, li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* Intersections / Highlights list */
+        .highlight-box {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 15px;
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .project-card:hover {
             border-color: var(--text-secondary);
-            transform: translateY(-2px);
         }
 
         .project-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
-            margin-bottom: 6px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
 
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
+        .project-subtitle {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
         }
 
-        .project-tags {
+        .tech-tags {
             display: flex;
             gap: 6px;
+            flex-wrap: tag;
+            margin-top: 10px;
             flex-wrap: wrap;
-            margin-bottom: 12px;
         }
 
         .tag {
             font-size: 0.75rem;
-            color: var(--accent-color);
             background: rgba(88, 166, 255, 0.1);
+            color: var(--accent-color);
             padding: 2px 8px;
             border-radius: 4px;
-        }
-
-        /* List Items */
-        .exp-item {
-            margin-bottom: 16px;
-        }
-
-        .exp-title {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .exp-meta {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 6px;
+            border: 1px solid rgba(88, 166, 255, 0.2);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- Header / Hero -->
+        <!-- Header -->
         <header>
             <h1>Moh. Akmal Sukma Wardani</h1>
-            <p>Mahasiswa Sistem Informasi | UI/UX & Frontend Enthusiast</p>
-            <div class="social-links">
-                <a href="mailto:sukmawardaniakmal@gmail.com" class="btn btn-primary">✉️ Email Saya</a>
-                <a href="https://github.com/sukmawardaniakmal" target="_blank" class="btn btn-outline">🐱 GitHub</a>
-                <a href="https://instagram.com" target="_blank" class="btn btn-outline">📷 Instagram</a>
+            <p>System Information Student | UI/UX & Frontend Enthusiast</p>
+            <div class="social-icons">
+                <a href="mailto:sukmawardaniakmal@gmail.com" class="btn-link">✉️ Email</a>
+                <a href="https://github.com/sukmawardaniakmal" target="_blank" class="btn-link">🐱 GitHub</a>
+                <a href="https://instagram.com" target="_blank" class="btn-link">📷 Instagram</a>
             </div>
         </header>
 
         <!-- About Me -->
         <section>
-            <h2>🚀 Tentang Saya</h2>
-            <p class="about-text">
-                Saya adalah mahasiswa Sistem Informasi di Universitas Alma Ata Yogyakarta yang memiliki ketertarikan kuat dalam merancang produk digital yang ramah pengguna (UI/UX Design), pengembangan web/mobile, serta manajemen operasional acara dan organisasi.
-            </p>
+            <h2>About Me</h2>
+            <p>I'm an Information Systems student at Universitas Alma Ata with an interest in building digital products from idea to implementation[cite: 1].</p>
+            <p>My work sits at the intersection of:</p>
+            <ul>
+                <li><strong>Product Development</strong> — turning ideas and problems into practical digital solutions</li>
+                <li><strong>UI/UX Design</strong> — designing intuitive interfaces with usability and user needs in mind (Figma)</li>
+                <li><strong>Frontend Development</strong> — building and deploying web & mobile systems (HTML, CSS, Flutter)</li>
+                <li><strong>Organization & Administration</strong> — managing documentation, communication, and event workflows[cite: 1]</li>
+            </ul>
         </section>
 
-        <!-- Keahlian / Tech Stack -->
+        <!-- What I Do -->
         <section>
-            <h2>🛠️ Keahlian & Tools</h2>
-            <div class="skills-grid">
-                <span class="badge">UI/UX Design</span>
-                <span class="badge">Figma</span>
-                <span class="badge">Desain Grafis (Kemnaker)</span>
-                <span class="badge">HTML5</span>
-                <span class="badge">CSS3</span>
-                <span class="badge">Flutter / Dart</span>
-                <span class="badge">C++</span>
-                <span class="badge">Git & GitHub</span>
-                <span class="badge">VS Code</span>
-                <span class="badge">Microsoft Word</span>
-                <span class="badge">Administrasi Organisasi</span>
+            <h2>What I Do</h2>
+            <div class="highlight-box">
+                <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 8px;">Product & Design</p>
+                <ul>
+                    <li>UI/UX Design & User-Centered Approach</li>
+                    <li>Wireframing & Prototyping with Figma</li>
+                    <li>Graphic Design (Certified by Kemnaker RI)[cite: 3, 4]</li>
+                </ul>
+                <p style="color: var(--text-primary); font-weight: 600; margin-top: 15px; margin-bottom: 8px;">Technology & Development</p>
+                <ul>
+                    <li>Web & Mobile Development (HTML5, CSS3, Flutter / Dart)</li>
+                    <li>Version Control with Git & GitHub</li>
+                    <li>System Deployment via GitHub Pages</li>
+                </ul>
+                <p style="color: var(--text-primary); font-weight: 600; margin-top: 15px; margin-bottom: 8px;">Organization & Management</p>
+                <ul>
+                    <li>Event Operational Workflow & Coordination</li>
+                    <li>Document Administration & Meeting Minutes[cite: 1]</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Proyek Unggulan -->
+        <!-- Featured Projects -->
         <section>
-            <h2>💼 Proyek Unggulan</h2>
+            <h2>Featured Projects</h2>
             
             <div class="project-card">
                 <div class="project-title">🎵 Moodify — Music Player App</div>
-                <p class="project-desc">Aplikasi pemutar musik minimalis berbasis mobile yang dirancang sesuai suasana hati pengguna dengan navigasi bersih dan minim distraksi.</p>
-                <div class="project-tags">
+                <div class="project-subtitle">UI/UX Design & Frontend Development</div>
+                <p>A minimalist mobile music player application designed based on user moods, focusing on clean navigation, smooth transitions, and a distraction-free interface.</p>
+                <div class="tech-tags">
                     <span class="tag">Flutter</span>
                     <span class="tag">Dart</span>
                     <span class="tag">Figma</span>
                     <span class="tag">UI/UX</span>
                 </div>
-                <a href="https://github.com/sukmawardaniakmal" target="_blank" class="btn btn-outline" style="font-size: 0.8rem;">Lihat Repository</a>
             </div>
 
             <div class="project-card">
-                <div class="project-title">🌐 Website Portofolio Pribadi</div>
-                <p class="project-desc">Website portofolio yang dibangun menggunakan struktur HTML5 dan CSS3 yang ringan, responsif, serta di-hosting via GitHub Pages.</p>
-                <div class="project-tags">
+                <div class="project-title">🌐 Personal Portfolio Website</div>
+                <div class="project-subtitle">Frontend Development & Deployment</div>
+                <p>A personal web portfolio built using clean code structure, modern dark aesthetic, and hosted publicly via GitHub Pages.</p>
+                <div class="tech-tags">
                     <span class="tag">HTML5</span>
                     <span class="tag">CSS3</span>
                     <span class="tag">GitHub Pages</span>
                 </div>
-                <a href="https://github.com/sukmawardaniakmal/portofolio-akmal" target="_blank" class="btn btn-outline" style="font-size: 0.8rem;">Lihat Repository</a>
             </div>
         </section>
 
-        <!-- Pengalaman & Prestasi -->
+        <!-- Highlights & Experiences -->
         <section>
-            <h2>🏆 Pengalaman & Sertifikasi</h2>
-            
-            <div class="exp-item">
-                <div class="exp-title">Sekretaris — HIMSI Universitas Alma Ata</div>
-                <div class="exp-meta">2025 – Sekarang | Bantul, DIY</div>
-                <p class="project-desc">Mengelola seluruh sistem administrasi, pengarsipan dokumen resmi, serta koordinasi alur komunikasi operasional himpunan.</p>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-title">Sertifikasi Desainer Grafis Madya (260 JP)</div>
-                <div class="exp-meta">Juni 2024 | Kementerian Ketenagakerjaan RI</div>
-                <p class="project-desc">Lulus pelatihan berbasis kompetensi mencakup penerapan design brief, konsep & strategi desain visual, dan komunikasi visual.</p>
-            </div>
+            <h2>Highlights & Experience</h2>
+            <ul>
+                <li>🎓 <strong>Information Systems Student</strong> — Universitas Alma Ata[cite: 1]</li>
+                <li>👥 <strong>Secretary</strong> — HIMSI Universitas Alma Ata (2025–Present)[cite: 1]</li>
+                <li>🎨 <strong>Certified Intermediate Graphic Designer</strong> — Kementerian Ketenagakerjaan RI (2024)[cite: 3, 4]</li>
+                <li>🤝 <strong>Social Community Division Member</strong> — HIMSI UAA (2024–2025)[cite: 1]</li>
+            </ul>
         </section>
 
         <!-- Footer -->
         <footer>
-            <p>© 2026 Moh. Akmal Sukma Wardani. Built with HTML, CSS & hosted on GitHub Pages.</p>
+            <p>© 2026 Moh. Akmal Sukma Wardani. Inspired by clean engineering portfolios.</p>
         </footer>
     </div>
 
