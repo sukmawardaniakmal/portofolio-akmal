@@ -3,406 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akmal Sukma | User Data File</title>
+    <title>Moh. Akmal Sukma Wardani | Portfolio</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-paper: #dcdcdc;
-            --folder-bg: #e8e8e8;
-            --pink-accent: #ff007f;
-            --dark-header: #22252a;
-            --text-dark: #1a1a1a;
-            --text-muted: #555555;
-            --border-color: #333333;
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --accent-color: #58a6ff;
+            --accent-hover: #1f6feb;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         body {
-            background-color: #111115;
-            color: var(--text-dark);
-            padding: 20px 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Top Clip/Folder Header */
-        .folder-container {
-            width: 100%;
-            max-width: 800px;
-            background-color: var(--folder-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 2px solid #000;
-            box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
-            position: relative;
-        }
-
-        .folder-top-bar {
-            background-color: var(--pink-accent);
-            height: 45px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            position: relative;
-        }
-
-        .folder-top-bar::after {
-            content: "▼";
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.2rem;
-            color: #000;
-        }
-
-        .file-body {
-            padding: 30px 25px;
-            background-image: radial-gradient(#ccc 1px, transparent 1px);
-            background-size: 15px 15px;
-        }
-
-        /* Section Banner */
-        .section-banner {
-            background-color: var(--dark-header);
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 6px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .section-banner h2 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--pink-accent);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-        }
-
-        .section-banner .data-code {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            color: #888;
-            letter-spacing: 1px;
-        }
-
-        /* User Profile Grid */
-        .profile-grid {
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
-            align-items: start;
-        }
-
-        .avatar-box {
-            background-color: #222;
-            border: 3px solid #000;
-            border-radius: 12px;
-            padding: 10px;
-            text-align: center;
-            position: relative;
-        }
-
-        .avatar-box img {
-            width: 100%;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-
-        .sticker-smile {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: var(--pink-accent);
-            color: #fff;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            border: 2px solid #000;
-        }
-
-        .bio-text p {
-            font-size: 0.9rem;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: var(--text-dark);
-            margin-bottom: 12px;
+            padding: 30px 15px;
         }
 
-        .highlight-pink {
-            background-color: rgba(255, 0, 127, 0.15);
-            color: var(--pink-accent);
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2rem;
             font-weight: 700;
-            padding: 2px 4px;
-            border-bottom: 2px solid var(--pink-accent);
-        }
-
-        .contact-list {
-            margin-top: 15px;
-            font-size: 0.85rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
             margin-bottom: 6px;
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
+            color: var(--text-primary);
         }
 
-        /* Mission Log Section */
-        .mission-grid {
-            display: grid;
-            grid-template-columns: 1fr 220px;
-            gap: 20px;
+        header p {
+            color: var(--accent-color);
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 15px;
         }
 
-        .exp-edu-box h3 {
-            font-size: 0.95rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            border-left: 4px solid var(--pink-accent);
-            padding-left: 8px;
-        }
-
-        .history-list {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .history-item {
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-        }
-
-        .history-item .year {
-            font-weight: 700;
-            color: var(--pink-accent);
-            font-size: 0.8rem;
-        }
-
-        .history-item .title {
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .history-item .sub {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        /* Skill Badges Cyberpunk */
-        .skills-container {
+        .social-icons {
             display: flex;
+            gap: 12px;
             flex-wrap: wrap;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
             gap: 6px;
-            margin-top: 10px;
+            padding: 6px 12px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-link:hover {
+            border-color: var(--text-secondary);
+            background-color: #21262d;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 35px;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        /* Intersections / Highlights list */
+        .highlight-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
             margin-bottom: 20px;
         }
 
-        .skill-badge {
-            background-color: var(--dark-header);
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-weight: 700;
-            border: 1px solid var(--pink-accent);
+        /* Project Cards */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 15px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        .soft-skills-list {
-            background: #d0d0d0;
-            border: 1px solid #bbb;
-            padding: 12px;
-            border-radius: 8px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-            font-size: 0.8rem;
+        .project-card:hover {
+            border-color: var(--text-secondary);
+        }
+
+        .project-title {
+            font-size: 1.05rem;
             font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
 
-        /* IRL Portrait Box */
-        .irl-box {
-            background-color: var(--dark-header);
-            border-radius: 12px;
-            padding: 10px;
-            text-align: center;
-            border: 2px solid #000;
-            position: relative;
+        .project-subtitle {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
         }
 
-        .irl-title {
-            font-family: 'Orbitron', sans-serif;
-            color: #fff;
-            font-size: 0.8rem;
-            margin-bottom: 8px;
-            letter-spacing: 1px;
+        .tech-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: tag;
+            margin-top: 10px;
+            flex-wrap: wrap;
         }
 
-        .irl-photo-wrapper {
-            background: linear-gradient(135deg, var(--pink-accent) 0%, #ff55a5 100%);
-            border-radius: 8px;
-            padding: 6px;
-        }
-
-        .irl-photo-wrapper img {
-            width: 100%;
-            border-radius: 6px;
-            display: block;
-        }
-
-        .stamp-approved {
-            position: absolute;
-            bottom: -10px;
-            left: -15px;
-            border: 2px dashed var(--pink-accent);
-            color: var(--pink-accent);
-            padding: 4px 8px;
-            font-size: 0.65rem;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            transform: rotate(-12deg);
-            background: #fff;
+        .tag {
+            font-size: 0.75rem;
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent-color);
+            padding: 2px 8px;
             border-radius: 4px;
+            border: 1px solid rgba(88, 166, 255, 0.2);
         }
 
-        @media (max-width: 650px) {
-            .profile-grid, .mission-grid {
-                grid-template-columns: 1fr;
-            }
-            .irl-box { margin-top: 15px; }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="folder-container">
-        <!-- Folder Top Pink Bar -->
-        <div class="folder-top-bar">
-            <span>AKMAL // DATA FILE</span>
-            <span>RESTRICTED</span>
-        </div>
-
-        <div class="file-body">
-            <!-- User Profile Section -->
-            <div class="section-banner">
-                <h2>User Profile</h2>
-                <span class="data-code">DATA FILE // 01</span>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Moh. Akmal Sukma Wardani</h1>
+            <p>System Information Student | UI/UX & Frontend Enthusiast</p>
+            <div class="social-icons">
+                <a href="mailto:sukmawardaniakmal@gmail.com" class="btn-link">✉️ Email</a>
+                <a href="https://github.com/sukmawardaniakmal" target="_blank" class="btn-link">🐱 GitHub</a>
+                <a href="https://instagram.com" target="_blank" class="btn-link">📷 Instagram</a>
             </div>
+        </header>
 
-            <div class="profile-grid">
-                <!-- Avatar Box -->
-                <div class="avatar-box">
-                    <div class="sticker-smile">☺</div>
-                    <img src="https://via.placeholder.com/200x200/22222a/ff007f?text=Akmal+Avatar" alt="Avatar">
-                </div>
+        <!-- About Me -->
+        <section>
+            <h2>About Me</h2>
+            <p>I'm an Information Systems student at Universitas Alma Ata with an interest in building digital products from idea to implementation[cite: 1].</p>
+            <p>My work sits at the intersection of:</p>
+            <ul>
+                <li><strong>Product Development</strong> — turning ideas and problems into practical digital solutions</li>
+                <li><strong>UI/UX Design</strong> — designing intuitive interfaces with usability and user needs in mind (Figma)</li>
+                <li><strong>Frontend Development</strong> — building and deploying web & mobile systems (HTML, CSS, Flutter)</li>
+                <li><strong>Organization & Administration</strong> — managing documentation, communication, and event workflows[cite: 1]</li>
+            </ul>
+        </section>
 
-                <!-- Bio -->
-                <div class="bio-text">
-                    <p>I'm <span class="highlight-pink">Moh. Akmal Sukma Wardani</span>, an Information Systems student at <span class="highlight-pink">Universitas Alma Ata Yogyakarta</span>[cite: 1]. I specialize in bridging functional software development with intuitive user interfaces[cite: 1].</p>
-                    <p>My core work lies at the intersection of <span class="highlight-pink">UI/UX Design</span>, <span class="highlight-pink">Frontend Development</span>, and <span class="highlight-pink">Organizational Administration</span>[cite: 1]. Certified in Graphic Design by <span class="highlight-pink">Kemnaker RI</span>[cite: 3, 4].</p>
-
-                    <div class="contact-list">
-                        <a href="mailto:sukmawardaniakmal@gmail.com" class="contact-item">✉️ sukmawardaniakmal@gmail.com[cite: 1]</a>
-                        <a href="https://github.com/sukmawardaniakmal" target="_blank" class="contact-item">🐱 github.com/sukmawardaniakmal</a>
-                        <a href="https://instagram.com" target="_blank" class="contact-item">📷 instagram.com/akmal</a>
-                    </div>
-                </div>
+        <!-- What I Do -->
+        <section>
+            <h2>What I Do</h2>
+            <div class="highlight-box">
+                <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 8px;">Product & Design</p>
+                <ul>
+                    <li>UI/UX Design & User-Centered Approach</li>
+                    <li>Wireframing & Prototyping with Figma</li>
+                    <li>Graphic Design (Certified by Kemnaker RI)[cite: 3, 4]</li>
+                </ul>
+                <p style="color: var(--text-primary); font-weight: 600; margin-top: 15px; margin-bottom: 8px;">Technology & Development</p>
+                <ul>
+                    <li>Web & Mobile Development (HTML5, CSS3, Flutter / Dart)</li>
+                    <li>Version Control with Git & GitHub</li>
+                    <li>System Deployment via GitHub Pages</li>
+                </ul>
+                <p style="color: var(--text-primary); font-weight: 600; margin-top: 15px; margin-bottom: 8px;">Organization & Management</p>
+                <ul>
+                    <li>Event Operational Workflow & Coordination</li>
+                    <li>Document Administration & Meeting Minutes[cite: 1]</li>
+                </ul>
             </div>
+        </section>
 
-            <!-- Mission Log Section -->
-            <div class="section-banner">
-                <h2>Mission Log</h2>
-                <span class="data-code">DATA FILE // 02</span>
-            </div>
-
-            <div class="mission-grid">
-                <!-- Left: Experience, Education, Skills -->
-                <div class="exp-edu-box">
-                    <h3>Experience</h3>
-                    <div class="history-list">
-                        <div class="history-item">
-                            <span class="year">2025 – PRESENT</span>
-                            <div class="title">Sekretaris Himpunan</div>
-                            <div class="sub">HIMSI Universitas Alma Ata[cite: 1]</div>
-                        </div>
-                        <div class="history-item">
-                            <span class="year">2024 – 2025</span>
-                            <div class="title">Anggota Divisi Social Community</div>
-                            <div class="sub">HIMSI Universitas Alma Ata[cite: 1]</div>
-                        </div>
-                    </div>
-
-                    <h3>Education & Certification</h3>
-                    <div class="history-list">
-                        <div class="history-item">
-                            <span class="year">2024 – PRESENT</span>
-                            <div class="title">S1 Sistem Informasi</div>
-                            <div class="sub">Universitas Alma Ata Yogyakarta[cite: 1]</div>
-                        </div>
-                        <div class="history-item">
-                            <span class="year">JUNE 2024</span>
-                            <div class="title">Desainer Grafis Madya (260 JP)</div>
-                            <div class="sub">Kementerian Ketenagakerjaan RI[cite: 3]</div>
-                        </div>
-                    </div>
-
-                    <h3>Skillset</h3>
-                    <div class="skills-container">
-                        <span class="skill-badge">Figma</span>
-                        <span class="skill-badge">HTML5</span>
-                        <span class="skill-badge">CSS3</span>
-                        <span class="skill-badge">Flutter</span>
-                        <span class="skill-badge">Dart</span>
-                        <span class="skill-badge">C++</span>
-                        <span class="skill-badge">Git</span>
-                    </div>
-
-                    <div class="soft-skills-list">
-                        <div>• UI/UX Prototyping</div>
-                        <div>• Graphic Design</div>
-                        <div>• Event Administration</div>
-                        <div>• Team Coordination</div>
-                    </div>
-                </div>
-
-                <!-- Right: IRL Portrait -->
-                <div class="irl-box">
-                    <div class="irl-title">IRL PORTRAIT</div>
-                    <div class="irl-photo-wrapper">
-                        <!-- FOTO ASLI KAMU (Ganti link ini dengan foto korsa/pribadi kamu) -->
-                        <img src="https://via.placeholder.com/200x300/111115/ffffff?text=Foto+Akmal+IRL" alt="IRL Portrait">
-                    </div>
-                    <div class="stamp-approved">VERIFIED // 2026</div>
+        <!-- Featured Projects -->
+        <section>
+            <h2>Featured Projects</h2>
+            
+            <div class="project-card">
+                <div class="project-title">🎵 Moodify — Music Player App</div>
+                <div class="project-subtitle">UI/UX Design & Frontend Development</div>
+                <p>A minimalist mobile music player application designed based on user moods, focusing on clean navigation, smooth transitions, and a distraction-free interface.</p>
+                <div class="tech-tags">
+                    <span class="tag">Flutter</span>
+                    <span class="tag">Dart</span>
+                    <span class="tag">Figma</span>
+                    <span class="tag">UI/UX</span>
                 </div>
             </div>
 
-        </div>
+            <div class="project-card">
+                <div class="project-title">🌐 Personal Portfolio Website</div>
+                <div class="project-subtitle">Frontend Development & Deployment</div>
+                <p>A personal web portfolio built using clean code structure, modern dark aesthetic, and hosted publicly via GitHub Pages.</p>
+                <div class="tech-tags">
+                    <span class="tag">HTML5</span>
+                    <span class="tag">CSS3</span>
+                    <span class="tag">GitHub Pages</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights & Experiences -->
+        <section>
+            <h2>Highlights & Experience</h2>
+            <ul>
+                <li>🎓 <strong>Information Systems Student</strong> — Universitas Alma Ata[cite: 1]</li>
+                <li>👥 <strong>Secretary</strong> — HIMSI Universitas Alma Ata (2025–Present)[cite: 1]</li>
+                <li>🎨 <strong>Certified Intermediate Graphic Designer</strong> — Kementerian Ketenagakerjaan RI (2024)[cite: 3, 4]</li>
+                <li>🤝 <strong>Social Community Division Member</strong> — HIMSI UAA (2024–2025)[cite: 1]</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Moh. Akmal Sukma Wardani. Inspired by clean engineering portfolios.</p>
+        </footer>
     </div>
 
 </body>
