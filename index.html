@@ -18,6 +18,7 @@
             --text-secondary: #8b949e;
             --accent-color: #58a6ff;
             --accent-hover: #1f6feb;
+            --green-status: #3fb950;
         }
 
         * {
@@ -31,7 +32,7 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             line-height: 1.6;
-            padding: 30px 15px;
+            padding: 40px 15px;
         }
 
         .container {
@@ -39,26 +40,88 @@
             margin: 0 auto;
         }
 
-        /* Header (Center-Aligned) */
+        /* Header Styles */
         header {
-            padding-bottom: 25px;
+            padding-bottom: 30px;
             border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 12px;
+            background-color: rgba(63, 185, 80, 0.1);
+            border: 1px solid rgba(63, 185, 80, 0.3);
+            border-radius: 20px;
+            font-size: 0.78rem;
+            color: var(--green-status);
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--green-status);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--green-status);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.85); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Profile Photo Container */
+        .profile-img-container {
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .profile-img {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-color);
+            padding: 3px;
+            background-color: var(--card-bg);
+            box-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
         }
 
         header h1 {
-            font-size: 2rem;
+            font-size: 2.1rem;
             font-weight: 700;
             margin-bottom: 6px;
             color: var(--text-primary);
+            letter-spacing: -0.5px;
         }
 
-        header p {
+        header .subtitle {
             color: var(--accent-color);
             font-size: 1.05rem;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
+        }
+
+        header .location {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
         }
 
         .social-icons {
@@ -72,7 +135,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 12px;
+            padding: 7px 14px;
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
@@ -85,6 +148,7 @@
         .btn-link:hover {
             border-color: var(--text-secondary);
             background-color: #21262d;
+            transform: translateY(-2px);
         }
 
         /* Sections */
@@ -146,6 +210,7 @@
 
         .project-card:hover {
             border-color: var(--text-secondary);
+            transform: translateY(-2px);
         }
 
         .project-title {
@@ -190,10 +255,24 @@
 <body>
 
     <div class="container">
-        <!-- Header Center Aligned -->
+        <!-- Modern Aesthetic Header -->
         <header>
+            <!-- Status Badge -->
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>Available for Projects</span>
+            </div>
+
+            <!-- Profile Photo -->
+            <div class="profile-img-container">
+                <!-- Ganti link src di bawah dengan nama file foto profilmu di repo GitHub jika ada -->
+                <img class="profile-img" src="https://github.com/sukmawardaniakmal.png" alt="Moh. Akmal Sukma Wardani">
+            </div>
+
             <h1>Moh. Akmal Sukma Wardani</h1>
-            <p>System Information Student | UI/UX & Frontend Enthusiast</p>
+            <p class="subtitle">System Information Student | UI/UX & Frontend Enthusiast</p>
+            <p class="location">📍 Yogyakarta, Indonesia • Universitas Alma Ata</p>
+
             <div class="social-icons">
                 <a href="mailto:sukmawardaniakmal@gmail.com" class="btn-link">✉️ Email</a>
                 <a href="https://github.com/sukmawardaniakmal" target="_blank" class="btn-link">🐱 GitHub</a>
@@ -204,7 +283,7 @@
         <!-- About Me -->
         <section>
             <h2>About Me</h2>
-            <p>I'm an Information Systems student at Universitas Alma Ata with a strong passion for building practical digital solutions from concept to deployment.</p>
+            <p>I'm an Information Systems student at Universitas Alma Ata with a strong passion for building practical digital solutions from concept to deployment[cite: 1].</p>
             <p>My work sits at the intersection of:</p>
             <ul>
                 <li><strong>Product Development</strong> — turning real-world problems into structured software solutions</li>
@@ -222,7 +301,7 @@
                 <ul>
                     <li>UI/UX Design & User-Centered Approach</li>
                     <li>Wireframing & Prototyping with Figma</li>
-                    <li>Certified Intermediate Graphic Designer (Kemnaker RI)</li>
+                    <li>Certified Intermediate Graphic Designer (Kemnaker RI)[cite: 3, 4]</li>
                 </ul>
                 <p style="color: var(--text-primary); font-weight: 600; margin-top: 15px; margin-bottom: 8px;">Technology & Development</p>
                 <ul>
@@ -233,7 +312,7 @@
                 <p style="color: var(--text-primary); font-weight: 600; margin-top: 15px; margin-bottom: 8px;">Organization & Management</p>
                 <ul>
                     <li>Event Operational Workflow & Administrative Coordination</li>
-                    <li>Document Administration & Official Correspondence</li>
+                    <li>Document Administration & Official Correspondence[cite: 1]</li>
                 </ul>
             </div>
         </section>
@@ -245,7 +324,7 @@
             <div class="project-card">
                 <div class="project-title">🏠 Boarding House Management System (Sistem Pengelolaan Kos)</div>
                 <div class="project-subtitle">Full-Stack System Analysis, Design & Python Development</div>
-                <p>A comprehensive web-based multi-user management platform (Manager, Tenant, Parent) designed to automate room data management, rent payments, real-time arrears tracking, and facility complaint handling.</p>
+                <p>A comprehensive web-based multi-user management platform (Manager, Tenant, Parent) designed to automate room data management, rent payments, real-time arrears tracking, and facility complaint handling[cite: 8, 12].</p>
                 <div class="tech-tags">
                     <span class="tag">Python</span>
                     <span class="tag">System Analysis</span>
@@ -255,58 +334,4 @@
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-title">🍳 Dapurku — Recipe & Cooking Assistant App</div>
-                <div class="project-subtitle">System Analysis, UI/UX Design & App Development</div>
-                <p>A cooking assistant application built to help users manage recipes, attach food photos, set automated cooking timers, and easily search or filter recipe categories.</p>
-                <div class="tech-tags">
-                    <span class="tag">UI/UX Design</span>
-                    <span class="tag">UML Modeling</span>
-                    <span class="tag">Figma</span>
-                    <span class="tag">Mobile App</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-title">🎵 Moodify — Music Player App</div>
-                <div class="project-subtitle">UI/UX Design & Frontend Development</div>
-                <p>A minimalist mobile music player application designed based on user moods, focusing on clean navigation, smooth transitions, and a distraction-free interface.</p>
-                <div class="tech-tags">
-                    <span class="tag">Flutter</span>
-                    <span class="tag">Dart</span>
-                    <span class="tag">Figma</span>
-                    <span class="tag">UI/UX</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-title">🌐 Personal Portfolio Website</div>
-                <div class="project-subtitle">Frontend Development & Deployment</div>
-                <p>A personal web portfolio built using clean code structure, modern dark aesthetic, and hosted publicly via GitHub Pages.</p>
-                <div class="tech-tags">
-                    <span class="tag">HTML5</span>
-                    <span class="tag">CSS3</span>
-                    <span class="tag">GitHub Pages</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Highlights & Experiences -->
-        <section>
-            <h2>Highlights & Experience</h2>
-            <ul>
-                <li>🎓 <strong>Information Systems Student</strong> — Universitas Alma Ata</li>
-                <li>👥 <strong>Secretary</strong> — HIMSI Universitas Alma Ata (2025–Present)</li>
-                <li>🎨 <strong>Certified Intermediate Graphic Designer</strong> — Kementerian Ketenagakerjaan RI (2024)</li>
-                <li>🤝 <strong>Social Community Division Member</strong> — HIMSI UAA (2024–2025)</li>
-            </ul>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>© 2026 Moh. Akmal Sukma Wardani</p>
-        </footer>
-    </div>
-
-</body>
-</html>
+            <div
